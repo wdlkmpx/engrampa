@@ -1,0 +1,34 @@
+#!/bin/sh
+
+ver=1.19.1
+
+dir=engrampa-${ver}
+
+mkdir -p ../$dir
+
+cp -rf $PWD/* ../$dir
+
+(
+	cd ../$dir
+	./autogen.sh
+	rm -rf autom4te.cache
+	rm -rf .tx
+	rm -rf caja
+	rm -rf help
+	rm -rf po
+	#rm -rf m4
+	rm -f make-release
+)
+
+cd ..
+
+tar -Jcf ${dir}.tar.xz $dir
+
+### END ###
+
+#create original master branch to cherry pick commits
+#====================================================
+#git branch master-original
+#git checkout master-original
+#git reset --hard 90de1c2897d66c4161ab13abd9ee4be428e11366
+#git pull https://github.com/mate-desktop/engrampa master
