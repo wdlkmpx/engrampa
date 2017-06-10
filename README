@@ -83,3 +83,13 @@
   write to that file type.
   An example is ISO-9660 CD Disc Image (.iso) [Read-only mode]. Iso images
   may be read, but file(s) cannot be written to an (.iso).
+
+======
+
+The following directories can be safely deleted:
+
+.tx
+caja
+help
+po
+

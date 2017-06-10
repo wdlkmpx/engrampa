@@ -1,11 +1,7 @@
 SUBDIRS = ui icons
 
 desktopdir = $(datadir)/applications
-desktop_in_in_files = engrampa.desktop.in.in
-desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in) 
-desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-
-@INTLTOOL_DESKTOP_RULE@
+desktop_DATA = engrampa.desktop
 
 matchdir = $(datadir)/engrampa
 match_DATA = packages.match
@@ -16,10 +12,8 @@ service_DATA = $(service_in_files:.service.in=.service)
 $(service_DATA): $(service_in_files) Makefile
 	$(AM_V_GEN) $(SED) -e "s|\@libexecdir\@|$(libexecdir)|" $< > $@
 
-@INTLTOOL_XML_RULE@
 appdatadir = $(datadir)/appdata
-appdata_in_files = engrampa.appdata.xml.in
-appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+appdata_DATA = engrampa.appdata.xml
 
 gsettingsschema_in_files = org.mate.engrampa.gschema.xml.in
 gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
@@ -45,18 +39,13 @@ update-cache:
 EXTRA_DIST = \
        packages.match.in \
        packages.match \
-       $(desktop_in_in_files) \
-       $(desktop_in_files) \
        $(desktop_DATA) \
        $(gsettingsschema_in_files) \
-       $(appdata_in_files) \
        $(man_MANS) \
        $(service_in_files) \
        $(NULL)
 
 DISTCLEANFILES = \
-       $(desktop_in_files) \
-       $(desktop_DATA) \
        $(service_DATA) \
        $(NULL)
 

@@ -1,19 +1,10 @@
 ## Process this file with automake to produce Makefile.in.
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-if ENABLE_CAJA_ACTIONS
-CAJA = caja
-else
-CAJA =
-endif
-
 SUBDIRS =		\
 	copy-n-paste	\
 	data		\
-	src		\
-	help		\
-	$(CAJA)	\
-	po
+	src		
 
 distcleancheck_listfiles = find . -type f -print | grep -v 'omf\.out'
 
@@ -26,19 +17,7 @@ EXTRA_DIST = 			\
 	MAINTAINERS		\
 	NEWS			\
 	README			\
-	autogen.sh		\
-	intltool-merge.in	\
-	intltool-update.in	\
-	intltool-extract.in
-
-DISTCLEANFILES =                        \
-	po/.intltool-merge-cache        \
-	intltool-extract                \
-	intltool-merge                  \
-	intltool-update
-
-DISTCHECK_CONFIGURE_FLAGS = --with-cajadir='$${libdir}/caja/extensions-2.0-distcheck'
-
+	autogen.sh
 
 MAINTAINERCLEANFILES = \
 	$(srcdir)/INSTALL \
