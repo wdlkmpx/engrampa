@@ -5446,8 +5446,10 @@ fr_window_construct (FrWindow *window)
 	GtkAction        *action;
 	GtkUIManager     *ui;
 	GError           *error = NULL;
+#if GLIB_CHECK_VERSION(2, 32, 0)
 	GSettingsSchemaSource *schema_source;
 	GSettingsSchema  *caja_schema;
+#endif
 
 	/* data common to all windows. */
 
@@ -5466,12 +5468,14 @@ fr_window_construct (FrWindow *window)
 	window->priv->settings_general = g_settings_new (ENGRAMPA_SCHEMA_GENERAL);
 	window->priv->settings_dialogs = g_settings_new (ENGRAMPA_SCHEMA_DIALOGS);
 
+#if GLIB_CHECK_VERSION(2, 32, 0)
 	schema_source = g_settings_schema_source_get_default ();
 	caja_schema = g_settings_schema_source_lookup (schema_source, CAJA_SCHEMA, FALSE);
 	if (caja_schema) {
 		window->priv->settings_caja = g_settings_new (CAJA_SCHEMA);
 		g_settings_schema_unref (caja_schema);
 	}
+#endif
 
 	/* Create the application. */
 
