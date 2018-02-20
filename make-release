@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ver=1.19.1w
+ver="$(grep -m1 engrampa configure.ac | cut -f 3 -d '[' | cut -f 1 -d ']')"
 
 dir=engrampa-${ver}
 
