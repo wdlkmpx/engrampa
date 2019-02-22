@@ -307,9 +307,9 @@
               <entry align="left"><para><filename>.cpio</filename></para></entry>
             </row>
             <row valign="top">
-              <entry><para>Debian Linux package</para></entry>
-              <entry align="left"><para><filename>.deb</filename></para></entry>
-            </row>            
+              <entry><para>Debian package</para></entry>
+              <entry align="left"><para><filename>.deb</filename>, <filename>.udeb</filename></para></entry>
+            </row>
             <row valign="top">
               <entry><para>ISO-9660 CD disc image</para></entry>
               <entry align="left"><para><filename>.iso</filename></para></entry>
