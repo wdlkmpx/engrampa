@@ -102,11 +102,3 @@ void     debug                     (const char *file,
 				    const char *format, ...);
 
 #endif /* _GLIB_UTILS_H */
-
-// old misc.h
-
-#if !GLIB_CHECK_VERSION(2, 32, 0)
-gchar *Convert_Size (gsize size);
-gchar *Convert_Size_1 (gsize size);
-#define g_format_size(size) Convert_Size(size)
-#endif
